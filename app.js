@@ -36,7 +36,7 @@ var budgetController = (function() {
                 ID = 0;
             }
 
-            // Create new item based on 'inc' or 'exp' type
+            // Create new item based on 'inc' or 'exp' type - see getInput function in UIController
             if (type === 'exp') {
                 newItem = new Expense(ID, des, val);
             } else if (type === 'inc') {
@@ -70,10 +70,10 @@ var UIController = (function() {
         expensesContainer: '.expenses__list'
 
     }
-    //Some code
     return {
         getInput: function() {
             return {
+                // type saves two string values - 'inc' and 'exp'
                 type: document.querySelector(DOMstrings.inputType).value, // will be either inc or exp
                 description: document.querySelector(DOMstrings.inputDescription).value,
                 value: document.querySelector(DOMstrings.inputValue).value
